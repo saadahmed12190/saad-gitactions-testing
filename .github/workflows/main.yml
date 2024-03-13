@@ -4,7 +4,6 @@ jobs:
   listS3:
     runs-on: ubuntu-latest
     steps:
-      - name: my-step
       - uses: chrislennon/action-aws-cli@v1.1
       -  run: aws s3 ls
          env:
