@@ -1,7 +1,9 @@
-FROM node:16.20.1
+FROM cypress/base:18.11.0
+
 WORKDIR /app
-COPY package.json ./
-RUN npm install
+
 COPY . .
-EXPOSE 5000
-CMD ["npm","run","start"]
+
+RUN npm install
+
+CMD [ "npm", "run", "TestWithReportGeneration" ]
