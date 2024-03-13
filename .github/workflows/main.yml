@@ -8,6 +8,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::489994096722:role/saad-s3-testing-role
+          aws-region: us-east-1
       - name: run command
         run: 
            aws s3 ls
