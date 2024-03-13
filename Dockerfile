@@ -1,9 +1,2 @@
-FROM cypress/base:18.11.0
-
-WORKDIR /app
-
-COPY . .
-
-RUN npm install
-
-CMD [ "npm", "run", "TestWithReportGeneration" ]
+FROM httpd:2.4
+COPY . /usr/local/apache2/htdocs/
