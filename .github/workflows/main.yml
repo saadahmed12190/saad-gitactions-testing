@@ -11,6 +11,7 @@ jobs:
       - name: setup ECR
         uses: actions/checkout@v2
       - name: setup ECR details
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::489994096722:role/saad-ecr-role
           aws-region: us-east-1
