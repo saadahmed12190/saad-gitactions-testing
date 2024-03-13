@@ -1,20 +1,22 @@
-name: hello-world
+name: docker build
 on: push
 permissions:
   id-token: write
   contents: read
 jobs:
-  listS3:
+  ecr-login:
+    name: ECR role checking
     runs-on: ubuntu-latest
     steps:
-      - name: configure
-        uses: aws-actions/configure-aws-credentials@v1
+      - name: setup ECR
+        uses: actions/checkout@v2
+      - name: setup ECR details
         with:
-          role-to-assume: arn:aws:iam::489994096722:role/saad-s3-rolee
+          role-to-assume: arn:aws:iam::489994096722:role/saad-ecr-role
           aws-region: us-east-1
-      - name: run command
-        run: 
-           aws s3 ls
+      - name: login to ECR
+        id: login-pf-aws-ecr
+        uses: aws-actions/amazon-ecr-login@v1
           
       
           
